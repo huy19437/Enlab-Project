@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'Enlab-Project';
+export class AppComponent implements OnInit {
+    title = 'Enlab-Project';
+
+    constructor(private authService: AuthService) {
+
+    }
+
+    ngOnInit() {
+        this.authService.setLocalAuthData();
+        this.authService.isAuthenticated();
+    }
 }

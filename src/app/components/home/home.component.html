@@ -8,7 +8,9 @@
                     <li><a [routerLink]="['/about']" class="nav-item nav-link">About Us</a></li>
                     <li><a [routerLink]="['/login']" class="nav-item nav-link">Services</a></li>
                     <li><a [routerLink]="['/login']" class="nav-item nav-link">Contact</a></li>
-                    <li><a [routerLink]="['/login']" class="nav-item nav-link">Login</a></li>
+                    <li *ngIf="isLoggedIn"><a [routerLink]="['/login']" (click)="logout()"
+                            class="nav-item nav-link">Logout</a></li>
+                    <li *ngIf="!isLoggedIn"><a [routerLink]="['/login']" class="nav-item nav-link">Login</a></li>
                 </ul>
             </div>
         </div>
