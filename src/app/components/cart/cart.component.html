@@ -1,0 +1,58 @@
+<div class="container padding-bottom-3x mb-1">
+
+    <div class="wrapper">
+        <h1 class="cart-title">Shopping Cart</h1>
+        <div class="table-responsive shopping-cart">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th class="text-center">Quantity</th>
+                        <th class="text-center">Subtotal</th>
+                        <th class="text-center"><a class="btn btn-sm btn-outline-danger" (click)="clearCart()">Clear
+                                Cart</a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of items$ | async">
+                        <td>
+                            <div class="product-item">
+                                <a class="product-thumb" href="#"><img [src]="item.productImg" alt="Product"></a>
+                                <div class="product-info">
+                                    <h4 class="product-title"><a>{{item.productName}}</a></h4>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <div class="count-input">
+                                <span>{{item.quantity}}</span>
+                            </div>
+                        </td>
+                        <td class="text-center text-lg text-medium">{{item.subtotal | currency:'VND'}}</td>
+                        <td class="text-center">
+                            <a class="remove-from-cart" (click)="removeCartItem(item)">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="shopping-cart-footer">
+            <div class="column text-lg">Subtotal: <span class="text-medium">{{getCartTotal()|currency: 'VND'}}</span>
+            </div>
+        </div>
+        <div class="shopping-cart-footer">
+            <div class="column">
+                <a class="btn btn-outline-secondary" [routerLink]="['/']">
+                    Back to Shopping
+                </a>
+            </div>
+            <div class="column">
+                <a [routerLink]="['/checkout']" class="btn btn-success">Checkout</a>
+            </div>
+        </div>
+
+    </div>
+    <!-- Shopping Cart-->
+</div>

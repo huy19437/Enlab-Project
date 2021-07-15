@@ -9,6 +9,9 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { AdminComponent } from './components/admin/admin.component';
+import { FlowersListComponent } from './components/home/flowers-list/flowers-list.component';
+import { CartComponent } from './components/cart/cart.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 @NgModule({
     declarations: [
@@ -17,7 +20,10 @@ import { AdminComponent } from './components/admin/admin.component';
         AboutComponent,
         NotfoundComponent,
         LoginComponent,
-        AdminComponent
+        AdminComponent,
+        FlowersListComponent,
+        CartComponent,
+        CheckoutComponent
     ],
     imports: [
         BrowserModule,

@@ -1,13 +1,13 @@
 <header class="header-area overlay">
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container">
-            <a [routerLink]="['']" class="navbar-brand">Flowers.com</a>
+            <a [routerLink]="['']" class="navbar-brand">Logo.com</a>
             <div id="main-nav" class="collapse navbar-collapse" style="flex-direction: row-reverse;">
                 <ul class="navbar-nav ml-auto">
                     <li><a [routerLink]="['/login']" class="nav-item nav-link active">Home</a></li>
                     <li><a [routerLink]="['/about']" class="nav-item nav-link">About Us</a></li>
                     <li><a [routerLink]="['/login']" class="nav-item nav-link">Services</a></li>
-                    <li><a [routerLink]="['/login']" class="nav-item nav-link">Contact</a></li>
+                    <li><a routerLink="/cart" class="nav-item nav-link"><i class="fas fa-shopping-cart"></i></a></li>
                     <li *ngIf="isLoggedIn"><a [routerLink]="['/login']" (click)="logout()"
                             class="nav-item nav-link">Logout</a></li>
                     <li *ngIf="!isLoggedIn"><a [routerLink]="['/login']" class="nav-item nav-link">Login</a></li>
@@ -28,32 +28,7 @@
 <main>
     <section id="content" class="content">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec elit ex. Etiam elementum
-                        lectus et tempor molestie. Pellentesque vestibulum dui sit amet dui volutpat sollicitudin. Etiam
-                        non erat finibus, iaculis nunc vel, convallis eros. Etiam efficitur tempor dui, vitae fringilla
-                        ipsum tristique quis. Aliquam erat volutpat. Cras ullamcorper ex et viverra vulputate. Nam
-                        lectus ligula, pretium nec risus nec, ultricies fringilla mauris. Proin quis venenatis neque,
-                        iaculis porta nulla. </p>
-                </div>
-                <div class="col-md-4">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec elit ex. Etiam elementum
-                        lectus et tempor molestie. Pellentesque vestibulum dui sit amet dui volutpat sollicitudin. Etiam
-                        non erat finibus, iaculis nunc vel, convallis eros. Etiam efficitur tempor dui, vitae fringilla
-                        ipsum tristique quis. Aliquam erat volutpat. Cras ullamcorper ex et viverra vulputate. Nam
-                        lectus ligula, pretium nec risus nec, ultricies fringilla mauris. Proin quis venenatis neque,
-                        iaculis porta nulla. </p>
-                </div>
-                <div class="col-md-4">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec elit ex. Etiam elementum
-                        lectus et tempor molestie. Pellentesque vestibulum dui sit amet dui volutpat sollicitudin. Etiam
-                        non erat finibus, iaculis nunc vel, convallis eros. Etiam efficitur tempor dui, vitae fringilla
-                        ipsum tristique quis. Aliquam erat volutpat. Cras ullamcorper ex et viverra vulputate. Nam
-                        lectus ligula, pretium nec risus nec, ultricies fringilla mauris. Proin quis venenatis neque,
-                        iaculis porta nulla. </p>
-                </div>
-            </div>
+            <app-flowers-list></app-flowers-list>
         </div>
     </section>
 </main>

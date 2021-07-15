@@ -1,0 +1,25 @@
+<div class="row">
+    <div *ngFor="let flower of flowers" class="col-sm-6 col-lg-4 mb-4">
+        <div class="candidate-list candidate-grid">
+            <div class="candidate-list-image">
+                <img class="img-fluid" [src]="flower.image" alt="">
+            </div>
+            <div class="candidate-list-details">
+                <div class="candidate-list-info">
+                    <div class="candidate-list-title">
+                        <h5><a>{{flower.name}}</a></h5>
+                    </div>
+                    <div class="candidate-list-option">
+                        <ul class="list-unstyled">
+                            <li>{{flower.price | currency: 'VND'}}</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="candidate-list-favourite-time">
+                    <a class="candidate-list-favourite order-2" (click)="addToCart(flower)"><i
+                            class="fas fa-cart-plus"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

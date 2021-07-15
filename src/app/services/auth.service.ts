@@ -23,9 +23,14 @@ export class AuthService {
     constructor(private localStorage: LocalStorageService, private router: Router) { }
 
     isAuthenticated() {
+
         if (this.localStorage.getValue('token')) {
             this.updateAuthStatus(true);
+            return true;
+        } else {
+            return false;
         }
+
     }
 
     setTokenAfterLogin() {
@@ -39,7 +44,6 @@ export class AuthService {
     login(formValue: any) {
         let userObj = this.checkValidUser(formValue);
         if (userObj) {
-            console.log(userObj);
             if (userObj.type === 0) {
                 this.router.navigate(['/admin'])
             }

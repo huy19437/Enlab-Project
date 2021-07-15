@@ -1,0 +1,22 @@
+$primary-color: #ec4969;
+$border-radius: 10px;
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    .wrapper {
+        flex: 1;
+        background: #fff;
+        padding: 16px;
+        border-radius: $border-radius;
+        .checkout-title {
+            color: $primary-color;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 50px !important;
+            text-align: center;
+        }
+    }
+}
