@@ -5,5 +5,4 @@ export interface Order {
     addressUser: string;
     total: number;
     shippingFee: number;
-
 }

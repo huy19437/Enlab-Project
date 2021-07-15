@@ -7,7 +7,8 @@
                     <li><a [routerLink]="['/login']" class="nav-item nav-link active">Home</a></li>
                     <li><a [routerLink]="['/about']" class="nav-item nav-link">About Us</a></li>
                     <li><a [routerLink]="['/login']" class="nav-item nav-link">Services</a></li>
-                    <li><a routerLink="/cart" class="nav-item nav-link"><i class="fas fa-shopping-cart"></i></a></li>
+                    <li><a (click)="checkCartEmpty()" class="nav-item nav-link"><i class="fas fa-shopping-cart"></i></a>
+                    </li>
                     <li *ngIf="isLoggedIn"><a [routerLink]="['/login']" (click)="logout()"
                             class="nav-item nav-link">Logout</a></li>
                     <li *ngIf="!isLoggedIn"><a [routerLink]="['/login']" class="nav-item nav-link">Login</a></li>

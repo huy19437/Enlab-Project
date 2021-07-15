@@ -10,7 +10,7 @@ import { LocalStorageService } from './local-storage.service';
 export class CartService {
 
     items: Flower[] = [];
-    private carts: Cart[] = this.localStorage.getValue('carts') || [];
+    private carts: Cart[] = [];
 
     private displayCartsSubject: BehaviorSubject<Cart[]> = new BehaviorSubject<Cart[]>(this.localStorage.getValue('carts') || []);
 
@@ -18,9 +18,13 @@ export class CartService {
 
     constructor(private localStorage: LocalStorageService) { }
 
-
+    getCart() {
+        this.carts = this.localStorage.getValue('carts') || [];
+        this.updateCartsData();
+    }
 
     addToCart(product: Flower) {
+        this.carts = this.localStorage.getValue('carts') || [];
         if (!this.checkIfProductExists(product, this.carts)) {
             let cartObj = {
                 id: Math.random(),
@@ -43,7 +47,7 @@ export class CartService {
         this.updateCartsData();
     }
 
-    getCartTotal() {
+    getCartTotal(): number {
         return this.carts.reduce((accumulator, currentValue) => {
             return accumulator + currentValue.subtotal;
         }, 0)
@@ -63,7 +67,6 @@ export class CartService {
 
     checkIfProductExists(product: Flower, carts: Cart[]) {
         const index = carts.findIndex(t => t.productId === product.id);
-
         if (index !== -1) {
             const cartObj = this.carts[index];
             cartObj.quantity = cartObj.quantity + 1;
@@ -79,6 +82,6 @@ export class CartService {
     }
 
     updateCartsData() {
-        this.displayCartsSubject.next(this.carts);
+        this.displayCartsSubject.next(this.localStorage.getValue('carts'));
     }
 }

@@ -3,25 +3,41 @@
         <h2 class="h5 text-uppercase mb-4 checkout-title">Billing details</h2>
         <div class="row">
             <div class="col-lg-8">
-                <form action="#">
+                <form (ngSubmit)="submitOrder()" #checkoutForm="ngForm">
                     <div class="row">
                         <div class="col-lg-6 form-group">
                             <label class="text-small text-uppercase" for="firstName">Your name</label>
-                            <input class="form-control form-control-lg" id="firstName" type="text"
+                            <input required aria-describedby="usernameId" ngModel #nameUser="ngModel"
+                                class="form-control form-control-lg" name="nameUser" type="text"
                                 placeholder="Enter your first name">
+                            <small id="usernameId" *ngIf="!nameUser?.valid && (nameUser?.dirty || nameUser?.touched)"
+                                class="form-text">
+                                Name is invalid
+                            </small>
                         </div>
                         <div class="col-lg-6 form-group">
                             <label class="text-small text-uppercase" for="phone">Phone number</label>
-                            <input class="form-control form-control-lg" id="phone" type="tel"
+                            <input required aria-describedby="PhoneId" ngModel #phoneUser="ngModel"
+                                class="form-control form-control-lg" name="phone" type="tel"
                                 placeholder="e.g. +02 245354745">
+                            <small id="PhoneId" *ngIf="!phoneUser?.valid && (phoneUser?.dirty || phoneUser?.touched)"
+                                class="form-text">
+                                Phone is invalid
+                            </small>
                         </div>
                         <div class="col-lg-12 form-group">
                             <label class="text-small text-uppercase" for="address">Address</label>
-                            <input class="form-control form-control-lg" id="address" type="text"
+                            <input required aria-describedby="addressId" ngModel #addressUser="ngModel"
+                                class="form-control form-control-lg" name="address" type="text"
                                 placeholder="House number and street name">
+                            <small id="addressId"
+                                *ngIf="!addressUser?.valid && (addressUser?.dirty || addressUser?.touched)"
+                                class="form-text">
+                                Address is invalid
+                            </small>
                         </div>
                         <div class="col-lg-12 form-group">
-                            <button class="btn btn-dark" (click)="submitOrder()">Place order</button>
+                            <button type="submit" class="btn btn-dark">Place order</button>
                         </div>
                     </div>
                 </form>
@@ -31,16 +47,19 @@
                     <div class="card-body">
                         <h5 class="text-uppercase mb-4">Your order</h5>
                         <ul class="list-unstyled mb-0">
-                            <li class="d-flex align-items-center justify-content-between"><strong
-                                    class="small font-weight-bold">Red digital smartwatch</strong><span
-                                    class="text-muted small">$250</span></li>
+                            <li *ngFor="let item of carts" class="d-flex align-items-center justify-content-between">
+                                <strong class="small font-weight-bold">
+                                    {{item.productName}}
+                                </strong>
+                                <span class="text-muted small">{{item.subtotal | currency: 'VND'}}</span>
+                            </li>
                             <li class="border-bottom my-2"></li>
-                            <li class="d-flex align-items-center justify-content-between"><strong
-                                    class="small font-weight-bold">Gray Nike running shoes</strong><span
-                                    class="text-muted small">$351</span></li>
-                            <li class="border-bottom my-2"></li>
-                            <li class="d-flex align-items-center justify-content-between"><strong
-                                    class="text-uppercase small font-weight-bold">Total</strong><span>$601</span></li>
+                            <li class="d-flex align-items-center justify-content-between">
+                                <strong class="text-uppercase small font-weight-bold">
+                                    Total
+                                </strong>
+                                <span>{{getCartTotal()|currency: 'VND'}}</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
