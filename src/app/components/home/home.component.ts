@@ -19,10 +19,23 @@ export class HomeComponent implements OnInit {
     ngOnInit() {
         this.authService.isLoggined$.subscribe(isLogin => this.isLoggedIn = isLogin);
         this.changeColorNavbar();
+        this.dropDownEvent();
     }
 
     logout() {
         this.authService.logout();
+    }
+
+    dropDownEvent() {
+        $(document).ready(function () {
+            $('.dropdown').hover(
+                function () {
+                    $(window).children('.dropdown-menu').slideDown('fast');
+                },
+                function () {
+                    $(window).children('.dropdown-menu').slideUp('fast');
+                });
+        });
     }
 
     changeColorNavbar() {
@@ -48,6 +61,10 @@ export class HomeComponent implements OnInit {
         else {
             alert('Nothing in Cart!')
         }
+    }
+
+    getNameOfUser() {
+        return this.authService.getUserName();
     }
 
 }

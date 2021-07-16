@@ -33,8 +33,8 @@ export class AuthService {
 
     }
 
-    setTokenAfterLogin() {
-        this.localStorage.setObject('token', { islogin: true });
+    setTokenAfterLogin(formValue: any) {
+        this.localStorage.setObject('token', { islogin: true, name: formValue.username });
     }
 
     setLocalAuthData() {
@@ -51,7 +51,7 @@ export class AuthService {
                 this.router.navigate(['/'])
             }
             this.updateAuthStatus(true);
-            this.setTokenAfterLogin();
+            this.setTokenAfterLogin(formValue);
         }
     }
 
@@ -71,6 +71,11 @@ export class AuthService {
     logout() {
         this.updateAuthStatus(false);
         this.localStorage.remove('token');
+    }
+
+    getUserName(): string {
+        let nameOfUser: any = this.localStorage.getValue('token');
+        return nameOfUser.name;
     }
 
 }

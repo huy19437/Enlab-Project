@@ -12,6 +12,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { FlowersListComponent } from './components/home/flowers-list/flowers-list.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { HistoryOrdersComponent } from './components/history-orders/history-orders.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
         AdminComponent,
         FlowersListComponent,
         CartComponent,
-        CheckoutComponent
+        CheckoutComponent,
+        HistoryOrdersComponent,
     ],
     imports: [
         BrowserModule,

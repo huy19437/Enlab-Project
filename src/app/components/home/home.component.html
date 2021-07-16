@@ -9,8 +9,15 @@
                     <li><a [routerLink]="['/login']" class="nav-item nav-link">Services</a></li>
                     <li><a (click)="checkCartEmpty()" class="nav-item nav-link"><i class="fas fa-shopping-cart"></i></a>
                     </li>
-                    <li *ngIf="isLoggedIn"><a [routerLink]="['/login']" (click)="logout()"
-                            class="nav-item nav-link">Logout</a></li>
+                    <li *ngIf="isLoggedIn" class="dropdown">
+                        <a class="nav-item nav-link" data-toggle="dropdown">{{getNameOfUser()}}</a>
+                        <div class="dropdown-menu">
+                            <a [routerLink]="['/history-orders']" class="dropdown-item">History Orders</a>
+                            <a [routerLink]="['/login']" (click)="logout()" class="dropdown-item">Logout</a>
+                        </div>
+                    </li>
+                    <!-- <li *ngIf="isLoggedIn"><a [routerLink]="['/login']" (click)="logout()"
+                            class="nav-item nav-link">Logout</a></li> -->
                     <li *ngIf="!isLoggedIn"><a [routerLink]="['/login']" class="nav-item nav-link">Login</a></li>
                 </ul>
             </div>
