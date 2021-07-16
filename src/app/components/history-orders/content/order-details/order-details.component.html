@@ -1,0 +1,62 @@
+<div class="modal fade" id="staticBackdrop" data-backdrop="true" data-keyboard="true" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">
+                    <span class="partner-name">
+                        Flowers Store
+                    </span>
+                </h5>
+                <h5 class="modal-title" id="staticBackdropLabel">
+                    <span>
+                        Shipping fee: {{orderObj.shippingFee}}
+                    </span>
+                    <br />
+                    <span class="total-order">{{orderObj.total}}</span>
+                </h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <table class="table shopping-summery">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            Image
+                                        </th>
+                                        <th>
+                                            Product name
+                                        </th>
+                                        <th>
+                                            Product quantity
+                                        </th>
+                                        <th>
+                                            Product price
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let product of orderObj.productsList">
+                                        <td class="product-img">
+                                            <img [src]="product.productImg" alt="product img">
+                                        </td>
+                                        <td>{{product.productName}}</td>
+                                        <td>{{product.quantity}}</td>
+                                        <td>{{product.subtotal}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

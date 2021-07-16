@@ -1,0 +1,37 @@
+<div class="table-responsive">
+    <table class="table">
+        <colgroup>
+            <col style="width: 5%" />
+            <col style="width: 40%" />
+            <col style="width: 20%" />
+            <col style="width: 20%" />
+            <col style="width: 20%" />
+        </colgroup>
+        <thead>
+            <tr class="table-active">
+                <th scope="col">STT</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Total</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody style="text-align: left">
+            <tr *ngFor="let order of orders">
+                <td>{{order.id}}</td>
+                <td>
+                    {{order.addressUser}}
+                </td>
+                <td>{{order.phoneUser}}</td>
+                <td>{{order.total}}</td>
+                <td>
+                    <a class="order-detail" data-toggle="modal" data-target="#staticBackdrop"
+                        (click)="getOrder(order.id)">
+                        View Order Details
+                    </a>
+                    <app-order-details [orderId]="order.id"></app-order-details>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

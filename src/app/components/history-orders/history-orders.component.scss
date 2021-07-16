@@ -1,0 +1,22 @@
+$primary-color: #ec4969;
+$border-radius: 10px;
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    .warrper {
+        flex: 1;
+        background: #fff;
+        padding: 16px;
+        border-radius: 10px;
+        .page-header {
+            color: $primary-color;
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 50px;
+        }
+        .row {
+        }
+    }
+}

@@ -13,6 +13,8 @@ import { FlowersListComponent } from './components/home/flowers-list/flowers-lis
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { HistoryOrdersComponent } from './components/history-orders/history-orders.component';
+import { ContentComponent } from './components/history-orders/content/content.component';
+import { OrderDetailsComponent } from './components/history-orders/content/order-details/order-details.component';
 
 @NgModule({
     declarations: [
@@ -26,6 +28,8 @@ import { HistoryOrdersComponent } from './components/history-orders/history-orde
         CartComponent,
         CheckoutComponent,
         HistoryOrdersComponent,
+        ContentComponent,
+        OrderDetailsComponent,
     ],
     imports: [
         BrowserModule,

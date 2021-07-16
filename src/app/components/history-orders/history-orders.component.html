@@ -1,1 +1,18 @@
-<p>history-orders works!</p>
+<div class="container">
+    <div class="warrper">
+        <div class="page-header">
+            <h1>History Orders</h1>
+        </div>
+        <div class="row">
+            <app-content [orders]="orders"></app-content>
+        </div>
+        <div class="shopping-cart-footer">
+            <div class="column">
+                <a class="btn btn-outline-secondary" [routerLink]="['/']">
+                    Back to Shopping
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { Order } from 'src/app/models/order.model';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
-  selector: 'app-history-orders',
-  templateUrl: './history-orders.component.html',
-  styleUrls: ['./history-orders.component.scss']
+    selector: 'app-history-orders',
+    templateUrl: './history-orders.component.html',
+    styleUrls: ['./history-orders.component.scss']
 })
 export class HistoryOrdersComponent implements OnInit {
 
-  constructor() { }
+    orders: Order[] = this.localStorage.getValue('orders') || [];
 
-  ngOnInit(): void {
-  }
+
+    constructor(private localStorage: LocalStorageService) { }
+
+    ngOnInit(): void {
+
+    }
 
 }

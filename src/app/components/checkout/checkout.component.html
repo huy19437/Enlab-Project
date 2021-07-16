@@ -18,7 +18,7 @@
                         <div class="col-lg-6 form-group">
                             <label class="text-small text-uppercase" for="phone">Phone number</label>
                             <input required aria-describedby="PhoneId" ngModel #phoneUser="ngModel"
-                                class="form-control form-control-lg" name="phone" type="tel"
+                                class="form-control form-control-lg" name="phoneUser" type="tel"
                                 placeholder="e.g. +02 245354745">
                             <small id="PhoneId" *ngIf="!phoneUser?.valid && (phoneUser?.dirty || phoneUser?.touched)"
                                 class="form-text">
@@ -28,7 +28,7 @@
                         <div class="col-lg-12 form-group">
                             <label class="text-small text-uppercase" for="address">Address</label>
                             <input required aria-describedby="addressId" ngModel #addressUser="ngModel"
-                                class="form-control form-control-lg" name="address" type="text"
+                                class="form-control form-control-lg" name="addressUser" type="text"
                                 placeholder="House number and street name">
                             <small id="addressId"
                                 *ngIf="!addressUser?.valid && (addressUser?.dirty || addressUser?.touched)"
@@ -38,6 +38,9 @@
                         </div>
                         <div class="col-lg-12 form-group">
                             <button type="submit" class="btn btn-dark">Place order</button>
+                        </div>
+                        <div class="col-lg-12 form-group">
+                            <button [routerLink]="['/']" class="btn btn-dark">Back to Home</button>
                         </div>
                     </div>
                 </form>
