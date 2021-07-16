@@ -1,0 +1,112 @@
+<!-- Main Content -->
+<div id="content">
+
+    <!-- Topbar -->
+    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <!-- Topbar Navbar -->
+        <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
+                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                </a>
+                <!-- Dropdown - User Information -->
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="#">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        Profile
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fa fa-cogs" aria-hidden="true"></i>
+                        Settings
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fa fa-list" aria-hidden="true"></i>
+                        Activity Log
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        Logout
+                    </a>
+                </div>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <div class="container-fluid">
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Store Data</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th *ngFor="let key of keys">{{key}}</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th *ngFor="let key of keys">{{key}}</th>
+                                <th>Action</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            <tr *ngFor="let item of lists">
+                                <td *ngFor="let value of convertOtA(item)"
+                                    [ngClass]="{'flower-img': checkIfImg(value)}">
+                                    <img *ngIf="checkIfImg(value)" [src]="value" alt="img">
+                                    <span *ngIf="!checkIfImg(value)">{{value}}</span>
+                                </td>
+                                <!-- <td>{{item.id}}</td>
+                                <td>{{item.type}}</td>
+                                <td>{{item.name}}</td>
+                                <td *ngIf="item.image" class="flower-img">
+                                    <img [src]="item.image" alt="item image">
+                                </td>
+                                <td>{{item.price}}</td> -->
+                                <td style="width: 235px;">
+                                    <div class="col-12">
+                                        <div class="row btn-action">
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+
+                                                <button class="btn btn-primary">Edit</button>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12">
+
+                                                <button class="btn btn-primary">Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2021</span>
+        </div>
+    </div>
+</footer>
+<!-- End of Footer -->

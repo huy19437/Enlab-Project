@@ -4257,7 +4257,6 @@ input[type="button"].btn-block {
 .nav-link {
     display: block;
     padding: 0.5rem 1rem;
-    cursor: pointer;
 }
 
 .nav-link:hover,
@@ -11681,4 +11680,18 @@ footer.sticky-footer .copyright {
 
 body.sidebar-toggled footer.sticky-footer {
     width: 100%;
+}
+
+.flower-img {
+    img {
+        width: 50px;
+    }
+}
+
+.btn-action {
+    display: flex;
+    justify-content: center;
+    .btn {
+        margin-bottom: 5px;
+    }
 }

@@ -15,7 +15,8 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { HistoryOrdersComponent } from './components/history-orders/history-orders.component';
 import { ContentComponent } from './components/history-orders/content/content.component';
 import { OrderDetailsComponent } from './components/history-orders/content/order-details/order-details.component';
-
+import { FooterComponent } from './components/footer/footer.component';
+import { TableComponent } from './components/admin/table/table.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -30,6 +31,8 @@ import { OrderDetailsComponent } from './components/history-orders/content/order
         HistoryOrdersComponent,
         ContentComponent,
         OrderDetailsComponent,
+        FooterComponent,
+        TableComponent,
     ],
     imports: [
         BrowserModule,

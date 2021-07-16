@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { TableComponent } from './components/admin/table/table.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { HistoryOrdersComponent } from './components/history-orders/history-orders.component';
@@ -15,11 +16,20 @@ const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'login', component: LoginComponent },
     { path: 'about', component: AboutComponent },
-    { path: 'admin', component: AdminComponent, canActivate: [AuthGuardService] },
     { path: 'cart', component: CartComponent, canActivate: [AuthGuardService] },
     { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuardService] },
     { path: 'history-orders', component: HistoryOrdersComponent, canActivate: [AuthGuardService] },
+    {
+        path: 'admin',
+        component: AdminComponent,
+        canActivate: [AuthGuardService],
+        children: [
+            { path: 'table-flower/:id', component: TableComponent },
+            { path: 'table-order-list/:id', component: TableComponent },
+        ]
+    },
     { path: '**', component: NotfoundComponent },
+
 ];
 
 @NgModule({
